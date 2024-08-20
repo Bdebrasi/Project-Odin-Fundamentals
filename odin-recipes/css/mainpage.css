@@ -1,0 +1,44 @@
+h1 {
+    color: purple;
+    text-align: center;
+}
+
+ul {
+    padding: 0px;
+}
+
+li {
+    background-color: green;
+    text-align: center;
+    list-style-type: none;
+}
+
+.souffle {
+    color: yellow;
+}
+
+.general {
+    color: orange;
+}
+
+.vodka {
+    color: red;
+}
+
+/*
+
+Failed attempt because they are not all direct sibilings 
+
+ul li a:nth-of-type(1) {
+    color:brown;
+}
+
+ul li a:nth-of-type(2){
+    color:orange;
+}
+
+ul li a:nth-of-type(3) {
+    color:red;
+}
+
+*/
