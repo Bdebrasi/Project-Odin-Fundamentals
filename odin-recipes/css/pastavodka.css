@@ -1,0 +1,17 @@
+*{
+    text-align: center;
+    background-color: yellow;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: red;
+    font-family:Tangerine;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ol li {
+    text-align:left;
+}
