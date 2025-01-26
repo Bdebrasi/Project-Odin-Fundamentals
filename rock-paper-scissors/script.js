@@ -9,19 +9,12 @@ function getComputerChoice(min=1,max=3){
     }
 }
 
-function getHumanChoice(firstRound){
-    let choice;
-    if (firstRound){
-        choice = window.prompt("Welcome to rock paper scissors! Please rock, paper or scissors here:")
-    } else {
-        choice = window.prompt("Please rock, paper or scissors here:")
-    }
-    
-    return choice;
+function getHumanChoice(){
+    return window.prompt("Please rock, paper or scissors here:");
 }
 
-function playRound(firstRound){
-    var humanChoice = getHumanChoice(firstRound);
+function playRound(){
+    var humanChoice = getHumanChoice();
     var compChoice = getComputerChoice();
     
     console.log(`The human has chosen ${humanChoice}`);
@@ -40,12 +33,12 @@ function playGame(){
     var play = true;
     var humanWins = 0;
     var compWins = 0;
-    var firstRound = true;
+
+    console.log("Welcome to rock paper scissors!")
     
     while (play){
         
-        var result = playRound(firstRound)
-        firstRound  = false;
+        var result = playRound()
         
         if (result == "Draw"){
             console.log("It's a draw!");
