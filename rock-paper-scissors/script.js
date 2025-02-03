@@ -1,3 +1,10 @@
+var humanWins = 0;
+var compWins = 0;
+const winner = document.createElement("div");
+const scoreCount = document.createElement("div");
+const gameChoices = document.createElement("div");
+const endGame = document.createElement("div");
+
 function getComputerChoice(min=1,max=3){
     const num = Math.floor(Math.random() * (max - min + 1) + min)
     if (num == 1){
@@ -9,16 +16,56 @@ function getComputerChoice(min=1,max=3){
     }
 }
 
-function getHumanChoice(){
-    return window.prompt("Please rock, paper or scissors here:");
+function playGame(e) {
+    var result = playRound(e)
+
+    if (humanWins === 0 && compWins === 0){
+        document.body.appendChild(gameChoices);
+        document.body.appendChild(winner);
+        document.body.appendChild(scoreCount);
+    }
+
+    if(humanWins === 5 || compWins === 5){
+        return;
+    }
+        
+    if (result == "Draw"){
+        winner.textContent = "It's a draw!";
+    } else if(result == "Human wins"){
+        winner.textContent = "Human wins!";
+        humanWins+=1;
+    } else {
+        winner.textContent = "Computer wins!";
+        compWins+=1;
+    }
+
+    scoreCount.textContent =`Human score is ${humanWins}. Computer score is ${compWins}.`;
+    if (humanWins === 5 || compWins === 5){
+        document.body.removeChild(gameChoices);
+        document.body.removeChild(winner);
+        document.body.removeChild(scoreCount);
+        document.body.appendChild(endGame);
+
+        if (humanWins === 5 && compWins === 5){
+            endGame.textContent = `Thank you for playing! The games resulted in a draw!`
+        } else if (humanWins === 5){
+            endGame.textContent = `Thank you for playing! The human won!`
+        } else if (compWins === 5){
+            endGame.textContent = `Thank you for playing! The computer won!`
+        }
+
+    }
 }
 
-function playRound(){
-    var humanChoice = getHumanChoice();
+function playRound(humanChoice){
+    humanChoice = humanChoice.target.id;
     var compChoice = getComputerChoice();
-    
-    console.log(`The human has chosen ${humanChoice}`);
-    console.log(`The computer has chosen ${compChoice}`);
+
+    if (humanWins === 5 || compWins === 5){
+        return;
+    }
+
+    gameChoices.textContent = `The human has chosen ${humanChoice}. The computer has chosen ${compChoice}.`;
 
     if (compChoice == humanChoice){
         return "Draw";
@@ -29,39 +76,10 @@ function playRound(){
     }
 }
 
-function playGame(){
-    var play = true;
-    var humanWins = 0;
-    var compWins = 0;
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
 
-    console.log("Welcome to rock paper scissors!")
-    
-    while (play){
-        
-        var result = playRound()
-        
-        if (result == "Draw"){
-            console.log("It's a draw!");
-        } else if(result == "Human wins"){
-            console.log("Human wins!")
-            humanWins+=1;
-        } else {
-            console.log("Computer wins!")
-            compWins+=1;
-        }
-        
-        console.log(`Human score is ${humanWins}. Computer score is ${compWins}.`);
-
-        var answer = window.prompt("Would you like to play again? Enter true to continue and anything else to exit.")
-        if (answer == "true"){
-            play = true;
-        } else {
-            play = false;
-        }
-    }
-
-    console.log("Thanks for playing!");
-    console.log(`Final score is: Human ${humanWins}, Computer ${compWins}`);
-}
-
-playGame();
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener("click", playGame);
+});
