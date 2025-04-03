@@ -1,18 +1,24 @@
 const gridContainer = document.getElementById("grid-container");
 
-var style = document.createElement('style');
-style.innerHTML = `
-.secondDiv {
-    width: 100px;
-    height: 100px;
-}
-`;
+let sideSize = 16;
+let widthValue = (1/sideSize);
 
-for (let i = 0; i < 16; i++){
-    for (let j = 0; j < 16; j++){
+for (let i = 0; i < sideSize; i++){
+    for (let j = 0; j < sideSize; j++){
         const div = document.createElement("div");
+        /*
         div.classList.add("secondDiv");
+        var secondDiv = document.getElementById("secondDiv");
+        secondDiv.style.width = widthValue;
+        */
+        div.style.width = widthValue * 100 + "%";
         div.textContent=i+" " + j;
+
+        div.addEventListener("mouseover", () => {
+            div.style.backgroundColor = "blue";
+        })
+
+
         gridContainer.appendChild(div);
     }
 }
