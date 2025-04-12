@@ -3,20 +3,16 @@ function gridSizePrompt(){
     while (res < 1 || res > 100){
         res = prompt("Please enter the grid size you want. Size must be between 1 and 100 (inclusive).");
     }
-    //clearGrid();
+    clearGrid();
     createGrid(res);
 }
 
 const gridContainer = document.getElementById("grid-container");
 
-/*
-Current behavior is to simply remove the grid entirely once user enters correct prompt.
-Need to fix so previous grid is removed and a new grid of user specified size is added.
-
 function clearGrid(){
-    document.getElementById(gridContainer).innerHTML = "";
+    gridContainer.innerHTML = '';
 }
-*/
+
 
 function createGrid(gridSize = 16){
     let widthValue = (1/gridSize);
@@ -30,6 +26,8 @@ function createGrid(gridSize = 16){
             secondDiv.style.width = widthValue;
             */
             div.style.width = widthValue * 100 + "%";
+
+            //div takes up no space without this line. Fix next time.
             div.textContent=i+" "+j;
 
             div.addEventListener("mouseover", () => {
