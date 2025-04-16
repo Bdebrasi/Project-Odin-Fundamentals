@@ -28,9 +28,6 @@ function createGrid(gridSize = 16){
             div.style.width = widthValue * 100 + "%";
             div.style.minHeight = '50px';
 
-            //div takes up no space without this line. Fix next time.
-            div.textContent= i + " " + j;
-
             div.addEventListener("mouseover", () => {
                 div.style.backgroundColor = "blue";
             })
@@ -39,6 +36,7 @@ function createGrid(gridSize = 16){
             gridContainer.appendChild(div);
         }
     }
+    gridContainer.style.border = 'thick solid rgb(255, 0, 0)'
 }
 
 createGrid();
