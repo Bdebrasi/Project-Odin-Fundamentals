@@ -13,6 +13,15 @@ function clearGrid(){
     gridContainer.innerHTML = '';
 }
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+  
 
 function createGrid(gridSize = 16){
     let widthValue = (1/gridSize);
@@ -29,7 +38,14 @@ function createGrid(gridSize = 16){
             div.style.minHeight = '50px';
 
             div.addEventListener("mouseover", () => {
-                div.style.backgroundColor = "blue";
+                let color =div.style.backgroundColor;
+                if (color){
+                    let opacity = div.style.opacity;
+                    div.style.opacity = (Number(opacity) + .10).toString() 
+                } else {
+                    div.style.backgroundColor = getRandomColor();
+                    div.style.opacity = ".10";
+                }
             })
 
 
