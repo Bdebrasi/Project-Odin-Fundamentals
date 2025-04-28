@@ -1,0 +1,5 @@
+.calc{
+    display: flexbox;
+    border: red;
+    border-style:solid;
+}
