@@ -2,4 +2,31 @@
     display: flexbox;
     border: red;
     border-style:solid;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.displayClear{
+    display: flexbox;
+    border: red;
+    border-style:solid;
+    flex-direction: row;
+}
+
+.numbersOperations{
+    display: flexbox;
+    border: red;
+    border-style:solid;
+    flex-direction: row;
+}
+
+.buttonContainer{
+    display: flexbox;
+    border: red;
+    border-style:solid;
+    flex-direction: row;
+    width: 150px;
+}
+
+button{
 }
