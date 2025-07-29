@@ -33,3 +33,17 @@ function operate(leftOperand,operator,rightOperand){
         return division(leftOperand,rightOperand)
     }
 }
+
+function addNumDisplay(){
+
+}
+
+let currNumber = 0;
+
+const inp = document.querySelector("#inp");
+
+const num1 = document.getElementById('num1');
+num1.addEventListener('click',function(){
+    currNumber = (currNumber * 10) + 1;
+    inp.value = currNumber;
+});
