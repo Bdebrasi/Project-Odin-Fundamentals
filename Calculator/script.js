@@ -317,12 +317,8 @@ TO DO
 
 Code has a lot of duplication. Can be made more concise
 
-The result of an operation does become the left operand for the next calc.
-
-Clear and backspace functionality
-
-The selected operation does not show.
-
 Fix aesethetic. 
+
+Try code in code block and see if it fixes user entering multiple operators in a row problem. 
 
 */
