@@ -10,12 +10,13 @@ function operate(left,op,right){
     } else if(op == '*'){
         res = left * right;
     } else {
+        if (right === 0 || right === Number.MIN_VALUE){
+            return "ERROR";
+        }
         res = left / right;
     }
     return res;
 }
-
-let currNumber = 0;
 
 const inp = document.querySelector("#inp");
 
@@ -25,6 +26,9 @@ num1.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 1;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 1;
         inp.value = rightOperand;
     }
@@ -36,6 +40,9 @@ num2.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 2;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 2;
         inp.value = rightOperand;
     }
@@ -47,6 +54,9 @@ num3.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 3;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 3;
         inp.value = rightOperand;
     }
@@ -58,6 +68,9 @@ num4.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 4;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 4;
         inp.value = rightOperand;
     }
@@ -69,6 +82,9 @@ num5.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 5;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 5;
         inp.value = rightOperand;
     }
@@ -80,6 +96,9 @@ num6.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 6;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 6;
         inp.value = rightOperand;
     }
@@ -91,6 +110,9 @@ num7.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 7;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 7;
         inp.value = rightOperand;
     }
@@ -102,6 +124,9 @@ num8.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 8;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 8;
         inp.value = rightOperand;
     }
@@ -113,6 +138,9 @@ num9.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 9;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 9;
         inp.value = rightOperand;
     }
@@ -124,6 +152,9 @@ num0.addEventListener('click',function(){
         leftOperand = (leftOperand * 10) + 0;
         inp.value = leftOperand;
     } else {
+        if (rightOperand === Number.MIN_VALUE){
+            rightOperand = 0;
+        }
         rightOperand = (rightOperand * 10) + 0;
         inp.value = rightOperand;
     }
@@ -140,6 +171,9 @@ add.addEventListener('click',function(){
     rightOperand = Number.MIN_VALUE
     inp.value = res;
     operator = '+';
+    if (leftOperand === "ERROR"){
+        leftOperand = 0;
+    }
 });
 
 const sub = document.getElementById('sub');
@@ -153,6 +187,9 @@ sub.addEventListener('click',function(){
     rightOperand = Number.MIN_VALUE
     inp.value = res;
     operator = '-';
+    if (leftOperand === "ERROR"){
+        leftOperand = 0;
+    }
 });
 
 const mult = document.getElementById('mult');
@@ -166,6 +203,9 @@ mult.addEventListener('click',function(){
     rightOperand = Number.MIN_VALUE
     inp.value = res;
     operator = '*';
+    if (leftOperand === "ERROR"){
+        leftOperand = 0;
+    }
 });
 
 const divi = document.getElementById('divi');
@@ -175,10 +215,21 @@ divi.addEventListener('click',function(){
         return;
     }
     res = operate(leftOperand,operator,rightOperand);
+    if (res === "ERROR"){
+        inp.value = res;
+        leftOperand = 0;
+        rightOperand = Number.MIN_VALUE;
+        operator = '!';
+        console.log("error");
+        return;
+    }
     leftOperand = res;
     rightOperand = Number.MIN_VALUE;
     inp.value = res;
     operator = '/';
+    if (leftOperand === "ERROR"){
+        leftOperand = 0;
+    }
 });
 
 
@@ -186,7 +237,11 @@ const equals = document.getElementById("equals");
 equals.addEventListener('click',function(){
     let res = operate(leftOperand,operator,rightOperand);
     inp.value = res;
-    leftOperand = res;
+    if (res === "ERROR"){
+        leftOperand = 0;
+    } else {
+        leftOperand = res;
+    }
     rightOperand = Number.MIN_VALUE;
     operator = '!';
 })
@@ -214,10 +269,9 @@ bksp.addEventListener('click',function(){
 /*
 TO DO
 
-Code has a lot of duplication. Can be made more concise
+Code has a lot of duplication. Can be made more concise.
+
+Too much spaghetti code. Must clean up logic too.
 
 Fix aesthetic. 
-
-Division by zero
-
 */
