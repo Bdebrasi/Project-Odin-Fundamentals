@@ -19,7 +19,45 @@ function operate(left,op,right){
 }
 
 const inp = document.querySelector("#inp");
+console.log(leftOperand,operator,rightOperand);
 
+const numberButtonContainers = document.getElementsByClassName("numberButtonContainer");
+
+for (let button of numberButtonContainers ){
+        button.addEventListener("click", (e)=> {
+        if (e.target.tagName !== "BUTTON") return;
+        if(operator === '!'){
+            leftOperand = (leftOperand * 10) + Number(e.target.dataset.value);
+            inp.value = leftOperand;
+        } else {
+            if (rightOperand === Number.MIN_VALUE){
+                console.log(e.target.dataset.value);
+                rightOperand = 0;
+            }
+            rightOperand = (rightOperand * 10) + Number(e.target.dataset.value);
+            inp.value = rightOperand;
+        }
+    }
+)}
+
+/*
+document.getElementById("Numbers").addEventListener("click", (e)=> {
+    console.log(e);
+    if(operator === '!'){
+        leftOperand = (leftOperand * 10) + Number(e.target.dataset.value);
+        inp.value = leftOperand;
+    } else {
+        if (rightOperand === Number.MIN_VALUE){
+            console.log(e.target.dataset.value);
+            rightOperand = 0;
+        }
+        rightOperand = (rightOperand * 10) + Number(e.target.dataset.value);
+        inp.value = rightOperand;
+    }
+})
+*/
+
+/*
 const num1 = document.getElementById('num1');
 num1.addEventListener('click',function(){
     if(operator === '!'){
@@ -159,7 +197,7 @@ num0.addEventListener('click',function(){
         inp.value = rightOperand;
     }
 });
-
+*/
 const add = document.getElementById('add');
 add.addEventListener('click',function(){
     if (rightOperand === Number.MIN_VALUE){
