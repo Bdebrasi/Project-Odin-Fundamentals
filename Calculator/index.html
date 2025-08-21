@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="script.js" defer></script>
-
 </head>
+
 <body>
     <div class="calc">
         <div class="displayClear">
@@ -36,16 +37,16 @@
                 </div>
             </div>
             <div class="operations">
-                <div class="buttonContainer">
-                    <button id="add" type="button">+</button> 
-                    <button id="sub" type="button">-</button> 
+                <div class="operationsButtonContainer">
+                    <button data-value=+ id="add" type="button">+</button> 
+                    <button data-value=- id="sub" type="button">-</button> 
                 </div>
-                <div class="buttonContainer">
-                    <button id="mult" type="button">*</button> 
-                    <button id="divi" type="button">/</button> 
+                <div class="operationsButtonContainer">
+                    <button data-value=* id="mult" type="button">*</button> 
+                    <button data-value=/ id="divi" type="button">/</button> 
                 </div>
             </div>
-            <div class="buttonContainer">
+            <div class="bkspEqualButtonContainer">
                 <div class="BkspEqual">
                     <button id="bksp" type="button">Bksp</button> 
                     <button id="equals" type="button">=</button> 
