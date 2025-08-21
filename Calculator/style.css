@@ -1,9 +1,10 @@
 .calc{
-    display: flexbox;
+    display:flex;
     border: red;
     border-style:solid;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .displayClear{
@@ -11,10 +12,11 @@
     border: red;
     border-style:solid;
     flex-direction: row;
+    width: 150px;
 }
 
 .display{
-
+    width: 100px;
 }
 
 .numbersOperations{
