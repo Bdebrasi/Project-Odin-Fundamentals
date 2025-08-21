@@ -20,9 +20,9 @@ function operate(left,op,right){
 
 const inp = document.querySelector("#inp");
 
-const numberButtonContainers = document.getElementsByClassName("numberButtonContainer");
+const numbersButtonContainers = document.getElementsByClassName("numbersButtonContainer");
 
-for (let button of numberButtonContainers ){
+for (let button of numbersButtonContainers ){
         button.addEventListener("click", (e)=> {
         if (e.target.tagName !== "BUTTON") return;
         if(operator === '!'){
@@ -43,6 +43,7 @@ const operationsButtonContainers = document.getElementsByClassName("operationsBu
 
 for (let button of operationsButtonContainers ){
         button.addEventListener("click", (e)=> {
+        console.log("hello");
         if (e.target.tagName !== "BUTTON") return;
         if (rightOperand === Number.MIN_VALUE){
             operator = e.target.dataset.value;
@@ -97,7 +98,7 @@ bksp.addEventListener('click',function(){
 TO DO
 
 Code has a lot of duplication. Can be made more concise.
--Fix styling in numbers div
+-Fix styling in numbers and operations
 
 Too much spaghetti code. Must clean up logic too.
 

@@ -24,7 +24,7 @@
     flex-direction: row;
 }
 
-.buttonContainer{
+.numbersButtonContainer, .operationsButtonContainer, .bkspEqualButtonContainer{
     display: flexbox;
     border: red;
     border-style:solid;
