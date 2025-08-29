@@ -1,29 +1,29 @@
 .calc{
     display:flex;
+    flex-wrap: wrap;
     border: red;
     border-style:solid;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.calc > div {
+    width: 1000px;
+}
+
 .displayClear{
+    background-color: black;
     display: flexbox;
+    flex-direction: row;
     border: red;
     border-style:solid;
-    flex-direction: row;
-    width: 150px;
+    flex-wrap: wrap;
 }
 
-.display{
-    width: 100px;
-}
-
-.numbersOperations{
-    display: flexbox;
-    border: red;
-    border-style:solid;
-    flex-direction: row;
+.calcButtons{
+    background-color: black;
+    display: flex;
+    flex-direction:column;
 }
 
 .numbersButtonContainer, .operationsButtonContainer, .bkspEqualButtonContainer{
@@ -31,7 +31,8 @@
     border: red;
     border-style:solid;
     flex-direction: row;
-    width: 150px;
+    flex-wrap: wrap;
+    flex: 0 0 50%;
 }
 
 button{

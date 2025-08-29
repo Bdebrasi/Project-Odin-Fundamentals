@@ -43,7 +43,6 @@ const operationsButtonContainers = document.getElementsByClassName("operationsBu
 
 for (let button of operationsButtonContainers ){
         button.addEventListener("click", (e)=> {
-        console.log("hello");
         if (e.target.tagName !== "BUTTON") return;
         if (rightOperand === Number.MIN_VALUE){
             operator = e.target.dataset.value;
