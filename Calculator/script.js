@@ -20,7 +20,7 @@ function operate(left,op,right){
 
 const inp = document.querySelector("#inp");
 
-const numbersButtonContainers = document.getElementsByClassName("numbersButtonContainer");
+const numbersButtonContainers = document.getElementsByClassName("number");
 
 for (let button of numbersButtonContainers ){
         button.addEventListener("click", (e)=> {
@@ -39,7 +39,7 @@ for (let button of numbersButtonContainers ){
     }
 )}
 
-const operationsButtonContainers = document.getElementsByClassName("operationsButtonContainer");
+const operationsButtonContainers = document.getElementsByClassName("operation");
 
 for (let button of operationsButtonContainers ){
         button.addEventListener("click", (e)=> {

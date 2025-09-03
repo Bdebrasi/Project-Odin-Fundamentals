@@ -1,5 +1,6 @@
 .calc{
     display:flex;
+    flex-direction: column;
     flex-wrap: wrap;
     border: red;
     border-style:solid;
@@ -8,7 +9,7 @@
 }
 
 .calc > div {
-    width: 1000px;
+    width: 200px;
 }
 
 .displayClear{
@@ -20,13 +21,18 @@
     flex-wrap: wrap;
 }
 
+#inp {
+    width: 40%;
+}
+
+
 .calcButtons{
     background-color: black;
     display: flex;
     flex-direction:column;
 }
 
-.numbersButtonContainer, .operationsButtonContainer, .bkspEqualButtonContainer{
+.row{
     display: flexbox;
     border: red;
     border-style:solid;
