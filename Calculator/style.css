@@ -2,47 +2,44 @@
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: red;
-    border-style:solid;
     justify-content: center;
     align-items: center;
 }
 
-.calc > div {
-    width: 200px;
+.displayClear{
+    background-color: grey;
 }
 
-.displayClear{
-    background-color: black;
-    display: flexbox;
-    flex-direction: row;
-    border: red;
-    border-style:solid;
-    flex-wrap: wrap;
+.row{
+    background-color: grey;
+}
+
+.calc > div {
+    width: 120px;
 }
 
 #inp {
-    width: 40%;
+    width: 63%;
+    height: 60%;
 }
 
-
-.calcButtons{
-    background-color: black;
+.calcButtons .displayClear{
     display: flex;
     flex-direction:column;
 }
 
-.row{
-    display: flexbox;
-    border: red;
+.row .displayClear{
+    display: flex;
+    border: solid #000;
+    border-width: 0 20px;
     border-style:solid;
     flex-direction: row;
     flex-wrap: wrap;
-    flex: 0 0 50%;
 }
 
 button{
     box-shadow: 2px 1px 1px black;
+    width: 25px;
 }
 
 input {
